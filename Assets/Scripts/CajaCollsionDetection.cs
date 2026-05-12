@@ -5,6 +5,7 @@ using UnityEngine;
 public class CajaCollsionDetection : MonoBehaviour
 {
     public CajaMovement cajaMovementScript;
+    public TiempoManager tiempoManager;
 
     // Start is called before the first frame update
     void Start()
@@ -12,11 +13,14 @@ public class CajaCollsionDetection : MonoBehaviour
         cajaMovementScript = GetComponent<CajaMovement>();
     }
 
-    void OnCollisionEnter(Collision col)
+ void OnCollisionEnter(Collision col)
+{
+    if (col.gameObject.CompareTag("Piso"))
     {
-        if (col.gameObject.CompareTag("Piso"))
-        {
-            cajaMovementScript.MoveBoxToRandomPosition();
-        }
+        cajaMovementScript.MoveBoxToRandomPosition();
+        cajaMovementScript.IncrementarVelocidad();
     }
+
+
+}   
 }

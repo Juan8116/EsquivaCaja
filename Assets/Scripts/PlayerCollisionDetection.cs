@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PlayerCollisionDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    public TiempoManager tiempoManager; // asignalo en el Inspector
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Caja"))
         {
+            tiempoManager.PausarTiempo(); // 👈 pausa antes de destruir
             Destroy(gameObject);
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 }

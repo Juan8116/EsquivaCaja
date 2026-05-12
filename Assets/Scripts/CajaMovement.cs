@@ -34,4 +34,9 @@ public class CajaMovement : MonoBehaviour
         
         transform.position = newPosition;
     }
+    // CajaMovement.cs - Agregá este método público
+public void IncrementarVelocidad(float incremento = 0.5f)
+{
+    velocidadCaja += incremento;
+}
 }
