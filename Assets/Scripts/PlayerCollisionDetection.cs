@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerCollisionDetection : MonoBehaviour
 {
     
-    public TiempoManager tiempoManager; // asignalo en el Inspector
+    public TiempoManager tiempoManager;
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Caja"))
         {
-            tiempoManager.PausarTiempo(); // 👈 pausa antes de destruir
+            tiempoManager.PausarTiempo();
             Destroy(gameObject);
         }
     }
